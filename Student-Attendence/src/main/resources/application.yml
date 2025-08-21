@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: AttendanceSystem
+  datasource:
+    url: jdbc:mysql://localhost:3306/attendance_db?createDatabaseIfNotExist=true
+    username: root
+    password: shubham
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sdp7256@gmail.com
+    password: Shubham
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  port: 8085

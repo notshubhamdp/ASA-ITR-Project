@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/register.js"></script>
+    <style>
+        body {  
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 420px;
+            margin: 50px auto;
+            background: rgba(255,255,255,0.98);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(24,90,157,0.15);
+            padding: 38px 28px 28px 28px;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 18px auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #43cea2 60%, #185a9d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(24,90,157,0.13);
+        }
+        .logo svg {
+            width: 48px;
+            height: 48px;
+        }
+        h2 {
+            text-align: center;
+            color: #185a9d;
+            margin-bottom: 24px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        label {
+            font-weight: 500;
+            color: #185a9d;
+            margin-bottom: 6px;
+        }
+        input, select {
+            padding: 10px 12px;
+            border: 1px solid #43cea2;
+            border-radius: 7px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s;
+            background: #f8fafd;
+        }
+        input:focus, select:focus {
+            border-color: #185a9d;
+        }
+        .btn {
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s, transform 0.2s, color 0.2s;
+            width: 100%;         
+            text-align: center;  
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+            color: #185a9d;
+            transform: scale(1.03);
+        }
+        button.btn:focus {
+            outline: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 22px;
+            color: #185a9d;
+            font-size: 0.98rem;
+        }
+        @media (max-width: 500px) {
+            .container {
+                max-width: 98vw;
+                padding: 18px 6px 12px 6px;
+            }
+            .logo {
+                width: 56px;
+                height: 56px;
+            }
+            .logo svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <!-- SVG logo similar to index page -->
+            <svg viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="22" stroke="#185a9d" stroke-width="3" fill="#fff"/>
+                <path d="M24 28c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-5.33 0-16 2.665-16 8v4h32v-4c0-5.335-10.67-8-16-8z" fill="#43cea2"/>
+            </svg>
+        </div>
+        <h2>Student Registration</h2>
+
+        <form id="registerForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10-digit number">
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+
+            <button type="button" class="btn" id="generateOtpBtn">Generate OTP</button>
+            <div id="otpSection" style="display:none; margin-top:16px;">
+                <label for="otp">Enter OTP sent to your email</label>
+                <input type="text" id="otp" name="otp" required>
+                <button type="button" class="btn" id="verifyOtpBtn">Verify OTP</button>
+            </div>
+        </form>
+
+        <div class="footer">
+            &copy; 2025 Student Attendance System
+        </div>
+    </div>
+</body>
+</html>
