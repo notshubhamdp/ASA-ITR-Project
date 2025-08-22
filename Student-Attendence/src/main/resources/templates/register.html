@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/register.js"></script>
     <style>
-        body {  
+        body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
             margin: 0;
@@ -76,8 +76,8 @@
             cursor: pointer;
             margin-top: 10px;
             transition: background 0.2s, transform 0.2s, color 0.2s;
-            width: 100%;         
-            text-align: center;  
+            width: 100%;
+            text-align: center;
         }
         .btn:hover {
             background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
@@ -112,15 +112,13 @@
 <body>
     <div class="container">
         <div class="logo">
-            <!-- SVG logo similar to index page -->
             <svg viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="24" r="22" stroke="#185a9d" stroke-width="3" fill="#fff"/>
                 <path d="M24 28c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-5.33 0-16 2.665-16 8v4h32v-4c0-5.335-10.67-8-16-8z" fill="#43cea2"/>
             </svg>
         </div>
         <h2>Student Registration</h2>
-
-        <form id="registerForm">
+        <form action="otp-verification.html" method="post" id="registerForm">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
 
@@ -150,14 +148,8 @@
             <label for="confirm_password">Confirm Password</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
 
-            <button type="button" class="btn" id="generateOtpBtn">Generate OTP</button>
-            <div id="otpSection" style="display:none; margin-top:16px;">
-                <label for="otp">Enter OTP sent to your email</label>
-                <input type="text" id="otp" name="otp" required>
-                <button type="button" class="btn" id="verifyOtpBtn">Verify OTP</button>
-            </div>
+            <button type="submit" class="btn">Get OTP</button>
         </form>
-
         <div class="footer">
             &copy; 2025 Student Attendance System
         </div>

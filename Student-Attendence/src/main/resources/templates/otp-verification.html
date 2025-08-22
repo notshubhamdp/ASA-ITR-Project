@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Enter OTP</title>
-    <script src="/js/otp-verification.js"></script>
+    <title>OTP Verification</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/otp-verification.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -68,14 +68,41 @@
 </head>
 <body>
     <div class="container">
-        <h2>Enter OTP</h2>
-        <form action="/verify-otp" method="post">
-            <input type="text" name="otp" placeholder="Enter OTP" required>
+        <h2>OTP Verification</h2>
+        <form id="otpForm">
+            <label for="otp">Enter OTP sent to your email</label>
+            <input type="text" id="otp" name="otp" required>
             <button type="submit" class="btn">Verify OTP</button>
         </form>
         <div class="footer">
             &copy; 2025 Student Attendance System
         </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const otpForm = document.getElementById('otpForm');
+        if (!otpForm) return;
+        otpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(otpForm);
+            fetch('/verify-otp', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('OTP verified! Registration complete.');
+                    window.location.href = '/login.html';
+                } else {
+                    alert(data.message || 'Invalid OTP or session expired.');
+                }
+            })
+            .catch(() => {
+                alert('OTP verification failed. Please try again.');
+            });
+        });
+    });
+    </script>
 </body>
 </html>
